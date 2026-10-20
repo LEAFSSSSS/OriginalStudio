@@ -11,7 +11,11 @@
 
 拾序是一个中文优先的本地素材工作台。把图片、视频、文档接入同一个素材库，用文件名、画面描述、参考图、文档正文或视频对白找到需要的内容，再用收藏、标签和灵感集归档。
 
-![拾序工作区](docs/preview.png)
+[![拾序真实界面：30 秒检索与整理步骤演示](docs/demo.gif)](https://github.com/LEAFSSSSS/OriginalStudio/releases/download/v0.1.1/OriginalStudio-demo.mp4)
+
+[观看 MP4](https://github.com/LEAFSSSSS/OriginalStudio/releases/download/v0.1.1/OriginalStudio-demo.mp4) · [下载示例素材](https://github.com/LEAFSSSSS/OriginalStudio/releases/download/v0.1.1/OriginalStudio-demo-materials.zip) · [演示说明与复现步骤](docs/demo.md)
+
+<sub>真实界面截图按步骤编排，非连续录屏。图片为 AI 生成示例，索引已预先建立；演示时长不表示处理速度。</sub>
 
 > **v0.1.1 · 早期预览**：当前交付为源码版，运行环境为 Windows + Python 3.11（64 位）。AI 索引可选安装。发布包不包含模型、虚拟环境或个人素材，尚未提供验证过的 EXE 安装包。
 
@@ -63,6 +67,8 @@ cd OriginalStudio
 5. 把找到的素材加入收藏或灵感集。
 
 [查看目录浏览界面](docs/folder-browser.png) · [模型与离线配置](docs/usage.md#模型与离线配置)
+
+想先试一次？下载上方示例素材包，连接其中的 `materials` 文件夹并扫描、建立视觉索引。用 **语义搜索 → 湖边的帐篷** 找图，或用 **文档内容 → 露营** 找正文，再把结果加入自己的灵感集。[查看完整步骤](docs/demo.md#复现这段演示)。
 
 ## 支持的素材
 

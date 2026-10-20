@@ -17,9 +17,11 @@
 
 下载：https://github.com/LEAFSSSSS/OriginalStudio/releases/latest
 
-## 演示内容建议
+## 已准备的 GitHub 演示
 
-使用自己可公开的少量素材，录制一段约 30 秒的真实操作：连接目录 → 扫描/建立索引 → 输入画面描述 → 打开结果 → 加入灵感集。将演示与项目链接一起分享给实际需要整理素材的人。
+项目首页已提供 30 秒真实界面截图步骤演示：中文描述找图 → 打开结果 → 收藏、标签和笔记 → 加入灵感集 → 文档检索。它由真实截图编排，非连续录屏，示例图片由 AI 生成，索引已预先建立。
+
+[观看视频](https://github.com/LEAFSSSSS/OriginalStudio/releases/download/v0.1.1/OriginalStudio-demo.mp4) · [下载示例素材](https://github.com/LEAFSSSSS/OriginalStudio/releases/download/v0.1.1/OriginalStudio-demo-materials.zip) · [复现步骤与素材来源](demo.md)
 
 后续优先收集首次安装是否成功、第一次检索是否找到目标，以及哪些文件格式不能读取。把能复现的问题转成 Issues，持续在 Release 中说明改动。
 
