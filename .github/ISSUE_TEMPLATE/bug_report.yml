@@ -1,0 +1,30 @@
+name: 问题反馈 / Bug report
+description: 提供复现步骤，帮助定位问题。
+title: "[Bug] "
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: 运行环境 / Environment
+      description: Windows、Python 和项目版本。
+      placeholder: Windows 11, Python 3.11, v0.1.1
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤 / Steps to reproduce
+      description: 从打开程序开始，说明操作步骤。
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 预期与实际结果 / Expected and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 截图、日志或文件格式 / Additional details
+      description: 分享前请移除个人路径、素材内容和凭据。

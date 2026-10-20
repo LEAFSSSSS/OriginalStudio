@@ -1,0 +1,17 @@
+name: 使用场景与需求 / Feature request
+description: 告诉我们你在整理什么素材，以及哪里需要改善。
+title: "[Feature] "
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: 使用场景 / Use case
+      description: 你的素材类型、工作流程和遇到的困难。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 希望怎样完成 / Proposed improvement
+    validations:
+      required: true
