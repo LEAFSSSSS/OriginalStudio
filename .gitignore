@@ -1,0 +1,9 @@
+.venv/
+data/
+.verification/
+release/
+build/
+__pycache__/
+*.py[cod]
+.env
+*.log

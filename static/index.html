@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#252a27">
+  <meta name="color-scheme" content="light">
+  <title>拾序 · Original Studio</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css?v=0.1.1">
+  <script type="module" src="/static/app.js?v=0.1.1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到素材区</a>
+  <button class="nav-shade" id="nav-shade" aria-label="关闭导航" hidden></button>
+  <aside class="sidebar" id="sidebar" aria-label="工作区导航">
+    <a class="brand" href="/" aria-label="拾序，素材工作区首页"><img src="/static/favicon.svg" width="38" height="38" alt=""><span><strong>拾序<span class="brand-dot">.</span></strong><small>ORIGINAL STUDIO</small></span></a>
+    <div class="workspace-label"><span class="status-dot"></span> 私人素材工作区 <span class="local-label">LOCAL</span></div>
+    <div class="nav-section-heading">素材库 <button id="add-root-nav" class="icon-button" aria-label="添加素材目录" title="添加素材目录"><span data-icon="plus"></span></button></div>
+    <nav id="library-nav" aria-label="素材来源"><button class="nav-item is-active" data-scope="all"><span data-icon="library"></span><span>全部素材</span><span class="nav-count" id="total-count">—</span></button><div id="roots-nav"></div><button class="nav-item" data-scope="favorites"><span data-icon="heart"></span><span>我的收藏</span><span class="nav-count" id="favorite-count">—</span></button></nav>
+    <div class="nav-section-heading collection-heading">灵感集 <button id="add-collection" class="icon-button" aria-label="新建灵感集" title="新建灵感集"><span data-icon="plus"></span></button></div>
+    <nav id="collections-nav" aria-label="灵感集"><p class="nav-empty">把零散灵感，收进一个主题。</p></nav>
+    <div class="sidebar-divider"></div>
+    <button class="nav-item" id="tasks-nav" data-scope="tasks"><span data-icon="tasks"></span><span>索引任务</span><span class="task-count" id="active-task-count" hidden></span></button>
+    <div class="sidebar-bottom"><div class="engine-indicator" id="engine-indicator"><span class="status-dot muted-dot"></span><span>正在连接本地工作区</span></div><button class="sidebar-action" id="capabilities-button"><span data-icon="settings"></span>引擎与能力<span data-icon="chevron"></span></button><button class="sidebar-action" id="backup-button"><span data-icon="shield"></span>备份工作区<span data-icon="download"></span></button><p class="sidebar-footnote">灵感在此，井然有序。<span id="version-label">独立本地工作区</span></p></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="topbar-left"><button class="icon-button mobile-menu" id="nav-toggle" aria-label="打开导航" aria-expanded="false" aria-controls="sidebar"><span data-icon="menu"></span></button><span class="breadcrumb-label">工作区</span><span class="breadcrumb-separator">/</span><span id="breadcrumb">全部素材</span></div><div class="topbar-right"><span class="connection-indicator" id="connection-indicator"><i></i>本地连接中</span><button class="icon-button" id="refresh-button" aria-label="刷新工作区" title="刷新工作区"><span data-icon="refresh"></span></button></div></header>
+    <main id="main" tabindex="-1">
+      <div id="connection-banner" class="connection-banner" hidden></div>
+      <section id="library-view">
+        <div class="page-heading"><div><p class="eyebrow">YOUR CREATIVE ARCHIVE</p><div class="heading-line"><h1 id="page-title">全部素材</h1><span class="heading-total" id="heading-total">—</span><button id="collection-menu-button" class="icon-button" aria-label="管理当前灵感集" title="管理当前灵感集" hidden><span data-icon="more"></span></button><button id="root-menu-button" class="icon-button" aria-label="管理当前目录" title="管理当前目录" hidden><span data-icon="more"></span></button></div><p class="page-description" id="page-description">收藏每一次发现，让灵感随时归位。</p></div><div class="page-actions"><button class="button secondary" id="add-root-button"><span data-icon="plus"></span>添加目录</button><button class="button primary" id="index-button"><span data-icon="scan"></span>建立索引<span data-icon="down"></span></button></div></div>
+        <section class="search-panel" aria-label="搜索素材">
+          <div class="search-tabs" id="search-tabs" role="tablist" aria-label="搜索方式"><button role="tab" aria-selected="true" data-mode="filename" id="mode-filename"><span data-icon="search"></span>文件名</button><button role="tab" aria-selected="false" tabindex="-1" data-mode="semantic" id="mode-semantic"><span data-icon="sparkle"></span>语义搜索</button><button role="tab" aria-selected="false" tabindex="-1" data-mode="reference" id="mode-reference"><span data-icon="image"></span>以图搜图</button><button role="tab" aria-selected="false" tabindex="-1" data-mode="document" id="mode-document"><span data-icon="document"></span>文档内容</button><button role="tab" aria-selected="false" tabindex="-1" data-mode="dialogue" id="mode-dialogue"><span data-icon="dialogue"></span>视频台词</button></div>
+          <form id="search-form" role="search"><div class="reference-upload" id="reference-upload" hidden><label class="reference-drop" id="reference-drop" for="reference-file"><span data-icon="upload"></span><span><strong>放入一张参考图片</strong><small>点击选择或拖拽至此 · 最大 16 MB</small></span><input id="reference-file" type="file" accept="image/*" class="visually-hidden"></label><div class="reference-preview" id="reference-preview" hidden></div></div><div class="search-field-row"><span class="search-input-icon" data-icon="search"></span><label class="visually-hidden" for="search-query">搜索内容</label><input id="search-query" type="search" autocomplete="off" placeholder="搜索文件名，找到记忆中的那一份素材…" maxlength="1000"><kbd class="search-shortcut">/</kbd><button class="button primary search-submit" type="submit" id="search-submit">搜索<span data-icon="arrow"></span></button></div><div class="search-footer"><span class="search-hint" id="search-hint">每一份灵感，都有迹可循。</span><button class="text-button" type="button" id="advanced-toggle" aria-expanded="false" aria-controls="advanced-filters"><span data-icon="filter"></span>筛选条件<span id="filter-count" class="filter-count" hidden></span><span data-icon="down"></span></button></div><div id="advanced-filters" class="advanced-filters" hidden><div class="filter-grid"><label>文件夹路径<input id="filter-folder" placeholder="路径包含，例如：旅行 / 2026" maxlength="500"></label><label>标签<input id="filter-tag" placeholder="精确匹配一个标签" maxlength="48"></label><label>修改日期，从<input id="filter-date-from" type="date"></label><label>到<input id="filter-date-to" type="date"></label><label class="semantic-filter" hidden>排除的画面<input id="filter-negative" placeholder="例如：文字、水印" maxlength="1000"></label><label class="semantic-filter" hidden>最低相似分<input id="filter-score" type="number" min="-100" max="100" step="any" placeholder="不限（-100 至 100）"></label></div><div class="filter-actions"><span>日期按本地文件的修改时间筛选</span><button type="button" class="text-button" id="clear-filters">重置筛选</button></div></div></form>
+        </section>
+        <div id="capability-note" class="capability-note" hidden></div>
+        <div class="results-toolbar"><div class="kind-filters" id="kind-filters" role="group" aria-label="素材类型"><button class="is-active" data-kind="">全部<span id="kind-all-count"></span></button><button data-kind="image"><span data-icon="image"></span>图片</button><button data-kind="video"><span data-icon="video"></span>视频</button><button data-kind="document"><span data-icon="document"></span>文档</button></div><div class="results-options"><label class="sort-label"><span class="visually-hidden">结果排序</span><select id="sort-select"><option value="recent">最近修改</option><option value="name">名称 A → Z</option><option value="oldest">最早修改</option></select></label><div class="view-switch" role="group" aria-label="显示方式"><button id="grid-button" class="is-active" aria-label="网格视图" aria-pressed="true"><span data-icon="grid"></span></button><button id="list-button" aria-label="列表视图" aria-pressed="false"><span data-icon="list"></span></button></div></div></div>
+        <div class="results-caption"><div><label class="select-page-label"><input type="checkbox" id="select-page" aria-label="选择本页全部素材"><span>选择本页</span></label><span id="results-summary" role="status" aria-live="polite">正在读取素材库…</span></div><button class="text-button refresh-notice" id="refresh-notice" hidden><span data-icon="refresh"></span>素材库已更新，点击刷新</button></div>
+        <div id="results" class="results-grid" aria-live="polite" aria-busy="true"></div>
+        <nav id="pagination" class="pagination" aria-label="结果分页" hidden></nav>
+        <footer class="library-footer"><span>留住灵感，也留住秩序。</span><span><span data-icon="shield"></span>文件留在原处 · 元数据存于本机</span></footer>
+      </section>
+      <section id="tasks-view" hidden><div class="page-heading"><div><p class="eyebrow">WORK IN PROGRESS</p><div class="heading-line"><h1>索引任务</h1><span class="heading-total" id="jobs-total">0</span></div><p class="page-description">让每一份素材，都变得可被发现。</p></div><button class="button primary" id="new-job-button"><span data-icon="plus"></span>新建任务</button></div><div class="tasks-info"><span data-icon="info"></span><p>任务按顺序在本机执行。搜索期间也会持续更新进度；停止后的任务可以继续。</p></div><div id="jobs-list" class="jobs-list"></div></section>
+    </main>
+  </div>
+  <div class="bulk-bar" id="bulk-bar" hidden><div class="bulk-count"><span id="selection-count">0</span> 项已选<button class="icon-button" id="clear-selection" aria-label="取消选择"><span data-icon="close"></span></button></div><div class="bulk-actions"><button data-bulk="paths" aria-label="复制已选素材路径"><span data-icon="copy"></span><span>复制路径</span></button><button data-bulk="favorite" aria-label="切换已选素材收藏"><span data-icon="heart"></span><span>收藏</span></button><button data-bulk="tags" aria-label="添加或移除已选素材标签"><span data-icon="tag"></span><span>标签</span></button><button data-bulk="collection" aria-label="将已选素材加入灵感集"><span data-icon="plus"></span><span>加入灵感集</span></button><button data-bulk="remove-collection" id="bulk-remove-collection" aria-label="将已选素材移出当前灵感集" hidden><span data-icon="logout"></span><span>移出灵感集</span></button></div></div>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <dialog id="modal" class="modal" aria-labelledby="modal-title"></dialog>
+  <dialog id="asset-dialog" class="asset-dialog" aria-labelledby="asset-title"></dialog>
+</body>
+</html>

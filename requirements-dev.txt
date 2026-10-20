@@ -1,0 +1,4 @@
+-r requirements.txt
+httpx==0.28.1
+numpy==1.26.4
+pyinstaller==6.16.0
